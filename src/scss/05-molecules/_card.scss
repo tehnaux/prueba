@@ -1,0 +1,35 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+}
+
+.card__img {
+    border-radius: var(--border-radius-4);
+}
+
+.card__model {
+    display: flex;
+    gap: var(--spacing-24);
+}
+
+.card__pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__icon-discount {
+    --icon-size: var(--icon-size-24);
+    --icon-color: var(--color-red);
+    margin-right: var(--spacing-12);
+}
+
+.card__p-price {
+    display: flex;
+    align-items: center;
+}
+
+.card__p-price--discount {
+    color: var(--color-red);
+}

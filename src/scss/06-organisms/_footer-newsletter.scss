@@ -1,0 +1,33 @@
+.footer-newsletter {
+    padding-top: var(--spacing-64);
+    padding-bottom: var(--spacing-32);
+    padding-left: var(--spacing-32);
+    padding-right: var(--spacing-32);
+}
+
+.footer-newsletter__form {
+    display: flex;
+    flex-direction: column;
+    
+    @include breakpoint($break-large) {
+        align-items: center;
+    }
+}
+
+.footer-newsletter__fieldset {
+    display: grid;
+    gap: var(--spacing-24);
+
+    @include breakpoint($break-large) {
+        grid-template-columns: #{pxToRem(240px)} auto;
+        align-items: end;
+    }
+}
+
+.footer-newsletter__btn {
+    width: 100%;
+
+    @include breakpoint($break-large) {
+        width: auto;
+    }
+}

@@ -1,0 +1,20 @@
+.all-motos__filters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-32);
+
+    @include breakpoint($break-small) {
+        display: flex;
+    }
+}
+
+.all-motos__cards {
+    display: grid;
+    gap: var(--spacing-32);
+    grid-template-columns: repeat(auto-fill, minmax(pxToRem(340px), 1fr));
+
+    @include breakpoint($break-medium) {
+        gap: var(--spacing-40);
+    }
+}

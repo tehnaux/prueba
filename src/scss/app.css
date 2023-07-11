@@ -1,0 +1,487 @@
+@charset "UTF-8";
+/* Variables */
+/* (Opcional) Las adaptamos al modo oscuro 
+@media (prefers-color-scheme: dark) {
+  :root{
+      --negro         : #ececec;
+  }
+}*/
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before, *::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* (Opcional) */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: #393939;
+  color: var(--blanco);
+}
+::selection {
+  background-color: #393939;
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  background-color: outline;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #393939;
+  /* (Opcional) */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-white: #fff;
+  --color-low-grey: #f5f5f5;
+  --color-grey: #bfbfbf;
+  --color-strong-grey: #535151;
+  --color-black: #242221;
+  --color-blue: #1e24bd;
+  --color-red: #e00000;
+  --color-transparent: #00000000;
+  --font-family: Arial, sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --font-h1: var(--font-weight-bold) 2.375rem/1.5 var(--font-family);
+  --font-h2: var(--font-weight-bold) 1.75rem/1.5 var(--font-family);
+  --font-h3: var(--font-weight-bold) 1.5rem/1.5 var(--font-family);
+  --font-body: var(--font-weight-regular) 1rem/1.5 var(--font-family);
+  --font-body-small: var(--font-weight-regular) 0.875rem/1.5 var(--font-family);
+  --spacing-4: 0.25rem;
+  --spacing-8: 0.5rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-40: 2.5rem;
+  --spacing-64: 4rem;
+  --zindex-header: 100;
+  --border-radius-4: 0.25rem;
+  --border-width-1: 0.0625rem;
+  --input-and-btn-height: 2.75rem;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 100%;
+}
+
+body {
+  font: var(--font-body);
+  color: var(--color-black);
+}
+
+.font--h1 {
+  font: var(--font-h1);
+  margin-bottom: var(--spacing-40);
+}
+
+.font--h2 {
+  font: var(--font-h2);
+  margin-bottom: var(--spacing-32);
+}
+
+.font--h3 {
+  font: var(--font-h3);
+}
+
+.font--body-small {
+  font: var(--font-body-small);
+}
+
+.icon {
+  --icon-size-16: 1rem;
+  --icon-size-24: 1.5rem;
+  --icon-size: var(--icon-size-24);
+  --icon-color: var(--color-black);
+  background-color: var(--icon-color);
+  height: var(--icon-size);
+  width: var(--icon-size);
+  min-width: var(--icon-size);
+  display: inline-block;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  vertical-align: middle;
+}
+
+.icon--moto-logo {
+  -webkit-mask-image: url(../assets/icons/moto-logo.svg);
+          mask-image: url(../assets/icons/moto-logo.svg);
+}
+
+.icon--user {
+  -webkit-mask-image: url(../assets/icons/user.svg);
+          mask-image: url(../assets/icons/user.svg);
+}
+
+.icon--burguer-menu {
+  -webkit-mask-image: url(../assets/icons/burguer-menu.svg);
+          mask-image: url(../assets/icons/burguer-menu.svg);
+}
+
+.icon--discount {
+  -webkit-mask-image: url(../assets/icons/discount.svg);
+          mask-image: url(../assets/icons/discount.svg);
+}
+
+.btn {
+  padding-left: var(--spacing-12);
+  padding-right: var(--spacing-12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--input-and-btn-height);
+  border-radius: var(--border-radius-4);
+  gap: var(--spacing-12);
+}
+
+.btn--filled {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn--text {
+  color: var(--color-black);
+  background-color: var(--color-transparent);
+}
+.btn--text:hover {
+  background-color: var(--color-grey);
+}
+
+.link {
+  color: var(--color-blue);
+  text-decoration: underline;
+}
+
+input {
+  background-color: var(--color-white);
+  border: var(--border-width-1) solid var(--color-black);
+  border-radius: var(--border-radius-4);
+  padding: var(--spacing-12);
+  height: var(--input-and-btn-height);
+}
+
+::-moz-placeholder {
+  color: var(--color-black);
+}
+
+::placeholder {
+  color: var(--color-black);
+}
+
+.chip {
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--border-radius-4);
+}
+
+.chip--btn--selected {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.chip--btn--unselected {
+  background-color: var(--color-transparent);
+  color: var(--color-black);
+  border: var(--border-width-1) solid var(--color-black);
+}
+
+.chip--descriptor {
+  background-color: var(--color-low-grey);
+}
+
+hr {
+  border-top: var(--border-width-1) solid var(--color-grey);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.card__img {
+  border-radius: var(--border-radius-4);
+}
+
+.card__model {
+  display: flex;
+  gap: var(--spacing-24);
+}
+
+.card__pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__icon-discount {
+  --icon-size: var(--icon-size-24);
+  --icon-color: var(--color-red);
+  margin-right: var(--spacing-12);
+}
+
+.card__p-price {
+  display: flex;
+  align-items: center;
+}
+
+.card__p-price--discount {
+  color: var(--color-red);
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--zindex-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-low-grey);
+  padding: var(--spacing-12) var(--spacing-32);
+}
+
+.header__logo {
+  width: 4.375rem;
+  height: 3rem;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+@media (min-width: 48rem) {
+  .header__nav {
+    gap: var(--spacing-32);
+  }
+}
+
+.header__a-all-motos {
+  display: none;
+}
+@media (min-width: 30rem) {
+  .header__a-all-motos {
+    display: flex;
+  }
+}
+
+.header__btn-user {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .header__btn-user {
+    display: flex;
+  }
+}
+
+main {
+  padding: var(--spacing-64) var(--spacing-32);
+  flex: 1;
+}
+
+.footer {
+  background-color: var(--color-low-grey);
+}
+
+.footer-nav {
+  padding-top: var(--spacing-24);
+  padding-bottom: var(--spacing-32);
+  padding-left: var(--spacing-32);
+  padding-right: var(--spacing-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  align-items: flex-start;
+}
+@media (min-width: 62rem) {
+  .footer-nav {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.footer-newsletter {
+  padding-top: var(--spacing-64);
+  padding-bottom: var(--spacing-32);
+  padding-left: var(--spacing-32);
+  padding-right: var(--spacing-32);
+}
+
+.footer-newsletter__form {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 62rem) {
+  .footer-newsletter__form {
+    align-items: center;
+  }
+}
+
+.footer-newsletter__fieldset {
+  display: grid;
+  gap: var(--spacing-24);
+}
+@media (min-width: 62rem) {
+  .footer-newsletter__fieldset {
+    grid-template-columns: 15rem auto;
+    align-items: end;
+  }
+}
+
+.footer-newsletter__btn {
+  width: 100%;
+}
+@media (min-width: 62rem) {
+  .footer-newsletter__btn {
+    width: auto;
+  }
+}
+
+.all-motos__filters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-32);
+}
+@media (min-width: 30rem) {
+  .all-motos__filters {
+    display: flex;
+  }
+}
+
+.all-motos__cards {
+  display: grid;
+  gap: var(--spacing-32);
+  grid-template-columns: repeat(auto-fill, minmax(21.25rem, 1fr));
+}
+@media (min-width: 48rem) {
+  .all-motos__cards {
+    gap: var(--spacing-40);
+  }
+}
+
+.hide-accesibility {
+  display: none;
+}/*# sourceMappingURL=app.css.map */

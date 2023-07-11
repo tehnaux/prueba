@@ -1,0 +1,43 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--zindex-header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-low-grey);
+    padding: var(--spacing-12) var(--spacing-32);
+}
+
+.header__logo {
+    width: pxToRem(70px);
+    height: pxToRem(48px);
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-24);
+
+    @include breakpoint($break-medium) {
+        gap: var(--spacing-32);
+    }
+}
+
+.header__a-all-motos {
+    display: none;
+
+    @include breakpoint($break-small) {
+        display: flex;
+    }
+}
+
+.header__btn-user {
+    display: none;
+
+    @include breakpoint($break-medium) {
+        display: flex;
+    }
+}
